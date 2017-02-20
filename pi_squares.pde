@@ -8,7 +8,7 @@ void setup() {
   size(1300, 770);      //width and height
   //fullScreen();
   surface.setResizable(true);
-  PiInput = loadStrings("data/pi 1M.txt");         //you can do this with any txt that is containig numbers.
+  PiInput = loadStrings("pi 1M.txt");         //you can do this with any txt that is containig numbers.
 }
 
 //screenshot
