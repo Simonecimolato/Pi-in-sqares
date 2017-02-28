@@ -1,11 +1,11 @@
 String[] PiInput;
-int x = 0;
-int y = 0;
+int x = 1;
+int y = 1;
 int lato = 1;
 int digits;
 
 void setup() {
-  size(1300, 770);      //width and height
+  size(1300, 772);      //width and height
   //fullScreen();
   surface.setResizable(true);
   PiInput = loadStrings("pi 1M.txt");         //you can do this with any txt that is containig numbers.
@@ -35,18 +35,19 @@ void draw() {
         noStroke();
         rect(x, y, lato, lato);
         x+= lato;
-        if (x >= width) {
+        if (x >= width - 1) {
           y+= lato;
-          x = 0;
+          x = 1;
         }
       }
     }
     int size = ceil(sqrt(digits)*lato);
     println("best window size using "+ lato + "*" + lato + " squares and " + digits + " digits: " + size + " * " + size);
+    println("Click to make a screenshot!");
+    noLoop();
+}
 
- if (mousePressed) {
-    save("resault.png");
-    println("screenshot saved!");
- }
- noLoop();
+void mousePressed(){
+  save("resault.png");
+  println("screenshot saved!");
 }
