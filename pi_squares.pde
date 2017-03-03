@@ -8,13 +8,13 @@ void setup() {
   size(1300, 772);      //width and height
   noLoop();
   surface.setResizable(true);
-  constant = loadStrings("pi 1M.txt");         //you can do this with any txt that is containig numbers.
+  constant = loadStrings("golden ratio 20k.txt");         //you can do this with any txt that is containig numbers.
   for (int k = 0; k < constant.length; k++) {
     for (int w = 0; w < constant[k].length(); w++) {
           digits++;
         }
     }
-  lato = floor(sqrt((width*height)/digits));
+  lato = floor(sqrt((width*height)/digits));   //this will automatically calculate the size of the squares
 }
 
 //screenshot
