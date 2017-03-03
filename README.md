@@ -1,2 +1,2 @@
 # Pi-squares
-this program shows 1 million digits of pi in a sigle window as little squares, darker squares stand for higher numbers.
+This program shows little squares which are digits of a mathematical constant, darker squares stand for lower numbers.
