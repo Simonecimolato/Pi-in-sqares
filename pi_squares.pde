@@ -30,7 +30,6 @@ void draw() {
         int current = int(charsArray[j]);        
         current -= 48;
         //println(charsArray[j])
-        digits++;
         
         //mapping the color to use and coloring
         color col = int(map(current, 0, 9, 0, 255));
