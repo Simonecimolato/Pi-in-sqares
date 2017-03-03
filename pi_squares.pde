@@ -1,24 +1,30 @@
-String[] PiInput;
+String[] constant;
+int lato;
 int x = 1;
 int y = 1;
-int lato = 1;
 int digits;
 
 void setup() {
   size(1300, 772);      //width and height
-  //fullScreen();
+  noLoop();
   surface.setResizable(true);
-  PiInput = loadStrings("pi 1M.txt");         //you can do this with any txt that is containig numbers.
+  constant = loadStrings("pi 1M.txt");         //you can do this with any txt that is containig numbers.
+  for (int k = 0; k < constant.length; k++) {
+    for (int w = 0; w < constant[k].length(); w++) {
+          digits++;
+        }
+    }
+  lato = floor(sqrt((width*height)/digits));
 }
 
 //screenshot
 void draw() {
-  for (int i = 0; i < PiInput.length; i++) {
-      //println(PiInput[i]);
-      char[] charsArray = new char[PiInput[i].length()];
+  for (int i = 0; i < constant.length; i++) {
+      //println(constant[i]);
+      char[] charsArray = new char[constant[i].length()];
 
-      for (int j = 0; j < PiInput[i].length(); j++) {
-        charsArray[j] = PiInput[i].charAt(j);
+      for (int j = 0; j < constant[i].length(); j++) {
+        charsArray[j] = constant[i].charAt(j);
         
         //from char to int
         int current = int(charsArray[j]);        
@@ -35,16 +41,15 @@ void draw() {
         noStroke();
         rect(x, y, lato, lato);
         x+= lato;
-        if (x >= width - 1) {
+        if (x >= width - lato) {
           y+= lato;
           x = 1;
         }
       }
     }
     int size = ceil(sqrt(digits)*lato);
-    println("best window size using "+ lato + "*" + lato + " squares and " + digits + " digits: " + size + " * " + size);
-    println("Click to make a screenshot!");
-    noLoop();
+    println("Best window size using "+ lato + "*" + lato + " squares and " + digits + " digits: " + size + " * " + size);
+    println("Click to take a screenshot!");
 }
 
 void mousePressed(){
