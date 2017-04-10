@@ -1,5 +1,5 @@
 String[] constant;
-int lato;
+float lato;
 int x = 1;
 int y = 1;
 int digits;
@@ -8,14 +8,18 @@ void setup() {
   size(1300, 772);      //width and height
   noLoop();
   surface.setResizable(true);
-  constant = loadStrings("golden ratio 20k.txt");         //you can do this with any txt that is containig numbers.
+  constant = loadStrings("pi 1M.txt");         //you can do this with any txt that is containig numbers.
+  
+  //the nested for loops way to count the digits is more accurate
   for (int k = 0; k < constant.length; k++) {
     for (int w = 0; w < constant[k].length(); w++) {
           digits++;
         }
     }
-  lato = floor(sqrt((width*height)/digits));   //this will automatically calculate the size of the squares
-}
+  //digits = constant[10].length() * constant.length;   //you can do this if the number of digits is the same for each line
+  
+  lato = sqrt((width*height)/digits);   //this will automatically calculate the size of the squares
+  }
 
 //screenshot
 void draw() {
@@ -32,7 +36,7 @@ void draw() {
         //println(charsArray[j])
         
         //mapping the color to use and coloring
-        color col = int(map(current, 0, 9, 0, 255));
+        color col = int(map(current, 0, 9, 255, 0));
         fill(col);
         //println(lato);
         
@@ -52,6 +56,6 @@ void draw() {
 }
 
 void mousePressed(){
-  save("result.png");
+  save("output.tiff");
   println("screenshot saved!");
 }
