@@ -52,6 +52,6 @@ void draw() {
 }
 
 void mousePressed(){
-  save("resault.png");
+  save("result.png");
   println("screenshot saved!");
 }
